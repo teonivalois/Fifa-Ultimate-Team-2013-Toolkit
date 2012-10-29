@@ -4,7 +4,7 @@ namespace UltimateTeam.Toolkit.Model
     {
         public uint League { get; set; }
 
-        public string Level { get; set; }
+        public Level Level { get; set; }
 
         public string Position { get; set; }
 

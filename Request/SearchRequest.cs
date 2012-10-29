@@ -41,8 +41,7 @@ namespace UltimateTeam.Toolkit.Request
             if (parameters.League > 0)
                 uriString += "&leag=" + parameters.League;
 
-            if (!string.IsNullOrEmpty(parameters.Level))
-                uriString += "&lev=" + parameters.Level;
+            SetLevel(parameters.Level, ref uriString);
 
             if (parameters.Nation > 0)
                 uriString += "&nat=" + parameters.Nation;
@@ -60,6 +59,22 @@ namespace UltimateTeam.Toolkit.Request
                 uriString += "&type=" + parameters.Type;
 
             return new Uri(uriString);
+        }
+
+        private static void SetLevel(Level level, ref string uriString)
+        {
+            switch (level)
+            {
+                case Level.All:
+                    break;
+                case Level.Bronze:
+                case Level.Silver:
+                case Level.Gold:
+                    uriString += "&lev=" + level;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("level");
+            }
         }
     }
 }
