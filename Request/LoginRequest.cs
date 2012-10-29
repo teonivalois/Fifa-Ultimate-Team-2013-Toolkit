@@ -21,18 +21,18 @@ namespace UltimateTeam.Toolkit.Request
             set { _hasher = value; }
         }
 
-        public async Task Login(string username, string password, string securityAnswer)
+        public async Task LoginAsync(string username, string password, string securityAnswer)
         {
-            var loginResponse = await IssueLoginRequest(username, password);
-            //var shards = await IssueShardsRequest();
+            var loginResponse = await LoginRequestAsync(username, password);
+            //var shards = await ShardsRequestAsync();
             // TODO: loop through shards until we get a user
-            var persona = await IssueAccountInfoRequest();
-            var authResponse = await IssueAuthenticationRequest(loginResponse, persona);
+            var persona = await AccountInfoRequestAsync();
+            var authResponse = await AuthenticationRequestAsync(loginResponse, persona);
             /*var validateResponse = */
-            await IssueValidateRequest(authResponse, securityAnswer);
+            await ValidateRequestAsync(authResponse, securityAnswer);
         }
 
-        private async Task<ValidateResponse> IssueValidateRequest(AuthenticationResponse authResponse, string securityAnswer)
+        private async Task<ValidateResponse> ValidateRequestAsync(AuthenticationResponse authResponse, string securityAnswer)
         {
             var questionUrl = new Uri("http://www.ea.com/p/fut/a/card-ps3/l/en_GB/s/p/ut/game/fifa13/phishing/validate");
 
@@ -53,7 +53,7 @@ namespace UltimateTeam.Toolkit.Request
             return validateResponse;
         }
 
-        private async Task<AuthenticationResponse> IssueAuthenticationRequest(LoginResponse loginResponse, Persona persona)
+        private async Task<AuthenticationResponse> AuthenticationRequestAsync(LoginResponse loginResponse, Persona persona)
         {
             var authUrl = new Uri("http://www.ea.com/p/fut/a/card-ps3/l/en_GB/s/p/ut/auth");
             var authJson = string.Format(@"{{ ""isReadOnly"": false, ""sku"": ""393A0001"", ""clientVersion"": 3, ""nuc"": {0}, ""nucleusPersonaId"": {1}, ""nucleusPersonaDisplayName"": ""{2}"", ""nucleusPersonaPlatform"": ""{3}"", ""locale"": ""en-GB"", ""method"": ""idm"", ""priorityLevel"":4, ""identification"": {{ ""EASW-Token"": """" }} }}",
@@ -72,7 +72,7 @@ namespace UltimateTeam.Toolkit.Request
             return authResponse;
         }
 
-        private async Task<Persona> IssueAccountInfoRequest()
+        private async Task<Persona> AccountInfoRequestAsync()
         {
             var accountUrl = new Uri(string.Format("http://www.ea.com/p/fut/a/card-pc/l/en_GB/s/p/ut/game/fifa13/user/accountinfo?timestamp={0}",
                                   DateTime.UtcNow.ToUnixTimestamp()));
@@ -85,7 +85,7 @@ namespace UltimateTeam.Toolkit.Request
             return persona;
         }
 
-        //private async Task<Shards> IssueShardsRequest()
+        //private async Task<Shards> ShardsRequestAsync()
         //{
         //    var shardsUrl = new Uri(string.Format("http://www.ea.com/p/fut/a/card/l/en_GB/s/p/ut/shards?timestamp={0}",
         //                                          DateTime.UtcNow.ToUnixTimestamp()));
@@ -97,7 +97,7 @@ namespace UltimateTeam.Toolkit.Request
         //    return shards;
         //}
 
-        private async Task<LoginResponse> IssueLoginRequest(string username, string password)
+        private async Task<LoginResponse> LoginRequestAsync(string username, string password)
         {
             var loginUrl = new Uri("https://www.ea.com/uk/football/services/authenticate/login");
 

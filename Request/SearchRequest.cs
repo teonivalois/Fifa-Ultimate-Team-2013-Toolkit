@@ -9,7 +9,7 @@ namespace UltimateTeam.Toolkit.Request
     {
         private const uint PageSize = 12;
 
-        public async Task<SearchResponse> Search(SearchParameters parameters)
+        public async Task<SearchResponse> SearchAsync(SearchParameters parameters)
         {
             var searchUri = BuildUriString(parameters);
 
