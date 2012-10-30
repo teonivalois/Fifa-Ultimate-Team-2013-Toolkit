@@ -11,6 +11,9 @@ namespace UltimateTeam.Toolkit.Request
 
         public async Task<SearchResponse> SearchAsync(SearchParameters parameters)
         {
+            if (parameters == null) throw new ArgumentNullException("parameters");
+            if (parameters.Page < 1) throw new ArgumentException("Page must be > 0");
+
             var searchUri = BuildUriString(parameters);
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Post, searchUri)

@@ -23,6 +23,10 @@ namespace UltimateTeam.Toolkit.Request
 
         public async Task LoginAsync(string username, string password, string securityAnswer)
         {
+            if (string.IsNullOrEmpty(username)) throw new ArgumentException("username");
+            if (string.IsNullOrEmpty(password)) throw new ArgumentException("password");
+            if (string.IsNullOrEmpty(securityAnswer)) throw new ArgumentException("securityAnswer");
+
             var loginResponse = await LoginRequestAsync(username, password);
             //var shards = await ShardsRequestAsync();
             // TODO: loop through shards until we get a user
