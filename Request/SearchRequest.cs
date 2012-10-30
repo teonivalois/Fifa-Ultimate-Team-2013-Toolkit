@@ -14,7 +14,7 @@ namespace UltimateTeam.Toolkit.Request
             if (parameters == null) throw new ArgumentNullException("parameters");
             if (parameters.Page < 1) throw new ArgumentException("Page must be > 0");
 
-            var searchUri = BuildUriString(parameters);
+            var searchUri = BuildUri(parameters);
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Post, searchUri)
             {
@@ -36,48 +36,14 @@ namespace UltimateTeam.Toolkit.Request
             return searchResponse;
         }
 
-        private static Uri BuildUriString(SearchParameters parameters)
+        private static Uri BuildUri(SearchParameters parameters)
         {
             var uriString = string.Format("https://utas.s2.fut.ea.com/ut/game/fifa13/auctionhouse?start={0}&num={1}",
-                (parameters.Page - 1) * PageSize, PageSize + 1);
+                      (parameters.Page - 1) * PageSize, PageSize + 1);
 
-            if (parameters.League > 0)
-                uriString += "&leag=" + parameters.League;
-
-            SetLevel(parameters.Level, ref uriString);
-
-            if (parameters.Nation > 0)
-                uriString += "&nat=" + parameters.Nation;
-
-            if (!string.IsNullOrEmpty(parameters.Formation))
-                uriString += "&form=" + parameters.Formation;
-
-            if (parameters.Team > 0)
-                uriString += "&team=" + parameters.Team;
-
-            if (!string.IsNullOrEmpty(parameters.Position))
-                uriString += "&pos=" + parameters.Position;
-
-            if (!string.IsNullOrEmpty(parameters.Type))
-                uriString += "&type=" + parameters.Type;
+            parameters.BuildUriString(ref uriString);
 
             return new Uri(uriString);
-        }
-
-        private static void SetLevel(Level level, ref string uriString)
-        {
-            switch (level)
-            {
-                case Level.All:
-                    break;
-                case Level.Bronze:
-                case Level.Silver:
-                case Level.Gold:
-                    uriString += "&lev=" + level;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException("level");
-            }
         }
     }
 }

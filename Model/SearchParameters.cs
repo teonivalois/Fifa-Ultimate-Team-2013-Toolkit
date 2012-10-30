@@ -1,21 +1,16 @@
 namespace UltimateTeam.Toolkit.Model
 {
-    public class SearchParameters
+    public abstract class SearchParameters
     {
-        public uint League { get; set; }
-
-        public Level Level { get; set; }
-
-        public string Position { get; set; }
-
-        public string Type { get; set; }
-
-        public uint Nation { get; set; }
-
-        public string Formation { get; set; }
-
-        public uint Team { get; set; }
+        protected ResourceType Type { get; private set; }
 
         public uint Page { get; set; }
+
+        protected SearchParameters(ResourceType type)
+        {
+            Type = type;
+        }
+
+        internal abstract string BuildUriString(ref string uriString);
     }
 }

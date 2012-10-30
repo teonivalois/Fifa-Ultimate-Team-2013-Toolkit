@@ -7,15 +7,14 @@ var loginRequest = new LoginRequest();
 await loginRequest.LoginAsync("e-mail", "password", "secret answer");
 ```
 
-### Search ###
+### Player search ###
 
 ```csharp
 var searchRequest = new SearchRequest();
-var searchParameters = new SearchParameters
+var searchParameters = new PlayerSearchParameters
 {
 	Page = 1,
-    Level = Level.Gold,
-	Type = "player"
+    Level = Level.Gold
 };
 
 var searchResponse = await searchRequest.SearchAsync(searchParameters);
