@@ -1,13 +1,13 @@
-## Sample usage ##
+## Sample usage
 
-### Login ###
+### Login
 
 ```csharp
 var loginRequest = new LoginRequest();
 await loginRequest.LoginAsync("e-mail", "password", "secret answer");
 ```
 
-### Player search ###
+### Player search
 
 All the search parameters are optional. If none are specified, you will get the 1st page of results with no filters applied.
 
@@ -31,37 +31,37 @@ foreach (var auctionInfo in searchResponse.AuctionInfo)
 }
 ```
 
-### Available parameter values ###
+### Available parameter values
 
 Great if you want to present all the options in the client application, for instance in a drop-down list.
 
 Mapping all these values will be an ongoing process, wouldn't mind some pull requests as help.
 
-Levels:
+**Levels**
 
 This is an enum, use as is.
 
-Formations:
+**Formations**
 ```
-IEnumerable<Formation> formations = Formations.GetAll();
+IEnumerable<Formation> formations = Formation.GetAll();
 ```
 
-Leagues:
+**Leagues**
 ```
 IEnumerable<League> leagues = League.GetAll();
 ```
 
-Nations:
+**Nations**
 ```
 IEnumerable<Nation> nations = Nation.GetAll();
 ```
 
-Positions:
+**Positions**
 ```
 IEnumerable<Position> positions = Position.GetAll();
 ```
 
-Teams: 
+**Teams**
 ```
-IEnumerable<Team> teams = Teams.GetAll();
+IEnumerable<Team> teams = Team.GetAll();
 ```
