@@ -9,6 +9,7 @@ namespace UltimateTeam.Toolkit.Model
         protected SearchParameters(ResourceType type)
         {
             Type = type;
+            Page = 1;
         }
 
         internal abstract string BuildUriString(ref string uriString);

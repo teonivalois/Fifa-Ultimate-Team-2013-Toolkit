@@ -41,9 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Formation.cs" />
+    <Compile Include="Model\League.cs" />
     <Compile Include="Model\Level.cs" />
+    <Compile Include="Model\Nation.cs" />
     <Compile Include="Model\PlayerSearchParameters.cs" />
+    <Compile Include="Model\Position.cs" />
     <Compile Include="Model\ResourceType.cs" />
+    <Compile Include="Model\SearchParameterBase.cs" />
+    <Compile Include="Model\Team.cs" />
     <Compile Include="Service\IJsonDeserializer.cs" />
     <Compile Include="Extension\DateTimeExtensions.cs" />
     <Compile Include="Extension\LongExtensions.cs" />
