@@ -42,14 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Formation.cs" />
-    <Compile Include="Model\League.cs" />
-    <Compile Include="Model\Level.cs" />
-    <Compile Include="Model\Nation.cs" />
-    <Compile Include="Model\PlayerSearchParameters.cs" />
-    <Compile Include="Model\Position.cs" />
+    <Compile Include="Parameter\PlayerSearchParameters.cs" />
     <Compile Include="Model\ResourceType.cs" />
-    <Compile Include="Model\SearchParameterBase.cs" />
-    <Compile Include="Model\Team.cs" />
+    <Compile Include="Parameter\SearchParameterBase.cs" />
+    <Compile Include="Parameter\League.cs" />
+    <Compile Include="Parameter\Level.cs" />
+    <Compile Include="Parameter\Nation.cs" />
+    <Compile Include="Parameter\Position.cs" />
+    <Compile Include="Parameter\Team.cs" />
     <Compile Include="Service\IJsonDeserializer.cs" />
     <Compile Include="Extension\DateTimeExtensions.cs" />
     <Compile Include="Extension\LongExtensions.cs" />
@@ -67,7 +67,7 @@
     <Compile Include="Model\Persona.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\PreferredPersona.cs" />
-    <Compile Include="Model\SearchParameters.cs" />
+    <Compile Include="Parameter\SearchParameters.cs" />
     <Compile Include="Model\Shard.cs" />
     <Compile Include="Model\Shards.cs" />
     <Compile Include="Model\UserAccountInfo.cs" />

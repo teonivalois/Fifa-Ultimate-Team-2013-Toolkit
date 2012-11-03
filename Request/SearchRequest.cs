@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using UltimateTeam.Toolkit.Model;
+using UltimateTeam.Toolkit.Parameter;
 
 namespace UltimateTeam.Toolkit.Request
 {

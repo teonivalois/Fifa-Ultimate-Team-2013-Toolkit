@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
-namespace UltimateTeam.Toolkit.Model
+namespace UltimateTeam.Toolkit.Parameter
 {
     public class League : SearchParameterBase<uint>
     {

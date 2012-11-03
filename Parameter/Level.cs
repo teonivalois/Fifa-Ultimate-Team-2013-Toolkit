@@ -1,4 +1,4 @@
-﻿namespace UltimateTeam.Toolkit.Model
+namespace UltimateTeam.Toolkit.Parameter
 {
     public enum Level
     {

@@ -1,9 +1,15 @@
 using System;
+using UltimateTeam.Toolkit.Model;
 
-namespace UltimateTeam.Toolkit.Model
+namespace UltimateTeam.Toolkit.Parameter
 {
     public class PlayerSearchParameters : SearchParameters
     {
+        public PlayerSearchParameters()
+            : base(ResourceType.Player)
+        {
+        }
+
         public uint League { get; set; }
 
         public Level Level { get; set; }
@@ -15,11 +21,6 @@ namespace UltimateTeam.Toolkit.Model
         public string Formation { get; set; }
 
         public uint Team { get; set; }
-
-        public PlayerSearchParameters()
-            : base(ResourceType.Player)
-        {
-        }
 
         internal override string BuildUriString(ref string uriString)
         {
@@ -63,13 +64,13 @@ namespace UltimateTeam.Toolkit.Model
         private void SetPosition(ref string uriString)
         {
             if (!string.IsNullOrEmpty(Position))
-                uriString +=
-                    Position == Model.Position.Defenders ||
-                    Position == Model.Position.Midfielders ||
-                    Position == Model.Position.Attackers ?
-                    "&zone=" :
-                    "&pos="
-                    + Position;
+                uriString += (
+                                 Position == Parameter.Position.Defenders ||
+                                 Position == Parameter.Position.Midfielders ||
+                                 Position == Parameter.Position.Attackers
+                                     ? "&zone="
+                                     : "&pos=")
+                             + Position;
         }
     }
 }

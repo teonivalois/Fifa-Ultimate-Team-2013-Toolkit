@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
-namespace UltimateTeam.Toolkit.Model
+namespace UltimateTeam.Toolkit.Parameter
 {
     public class Nation : SearchParameterBase<uint>
     {
@@ -11,7 +11,7 @@ namespace UltimateTeam.Toolkit.Model
             Description = description;
             Value = value;
         }
-        
+
         public static IEnumerable<Nation> GetAll()
         {
             yield return new Nation("Norway", Norway);
