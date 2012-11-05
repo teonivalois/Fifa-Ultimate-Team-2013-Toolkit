@@ -33,6 +33,7 @@ foreach (var auctionInfo in searchResponse.AuctionInfo)
 
 ### Player image
 ```csharp
+var playerImageRequest = new PlayerImageRequest();
 var imageBytes = await playerImageRequest.GetImageAsync(auctionInfo.ItemData.ResourceId);
 ```
 
