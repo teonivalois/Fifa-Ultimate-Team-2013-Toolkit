@@ -1,6 +1,6 @@
 ﻿namespace UltimateTeam.Toolkit.Extension
 {
-    internal static class LongExtensions
+    public static class LongExtensions
     {
         public static long CalculateBaseId(this long resourceId)
         {
@@ -24,7 +24,7 @@
                 }
             }
 
-            return resourceId;
+            return baseId;
         }
     }
 }
