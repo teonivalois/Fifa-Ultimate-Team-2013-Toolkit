@@ -31,9 +31,14 @@ foreach (var auctionInfo in searchResponse.AuctionInfo)
 }
 ```
 
+### Player image
+```csharp
+var imageBytes = await playerImageRequest.GetImageAsync(auctionInfo.ItemData.ResourceId);
+```
+
 ### Available parameter values
 
-Great if you want to present all the options in the client application, for instance in a drop-down list.
+Handt if you want to present all the options in the client application, for instance in a drop-down list.
 
 Mapping all these values will be an ongoing process, wouldn't mind some pull requests as help.
 
@@ -42,26 +47,26 @@ Mapping all these values will be an ongoing process, wouldn't mind some pull req
 This is an enum, use as is.
 
 **Formations**
-```
+```csharp
 IEnumerable<Formation> formations = Formation.GetAll();
 ```
 
 **Leagues**
-```
+```csharp
 IEnumerable<League> leagues = League.GetAll();
 ```
 
 **Nations**
-```
+```csharp
 IEnumerable<Nation> nations = Nation.GetAll();
 ```
 
 **Positions**
-```
+```csharp
 IEnumerable<Position> positions = Position.GetAll();
 ```
 
 **Teams**
-```
+```csharp
 IEnumerable<Team> teams = Team.GetAll();
 ```
