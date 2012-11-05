@@ -1,6 +1,5 @@
 ﻿using System.Net;
 using System.Net.Http;
-using System.Collections.Generic;
 using UltimateTeam.Toolkit.Service;
 
 namespace UltimateTeam.Toolkit.Request
@@ -8,9 +7,9 @@ namespace UltimateTeam.Toolkit.Request
     public abstract class RequestBase
     {
         private IJsonDeserializer _jsonDeserializer;
+        private static readonly CookieContainer CookieContainer = new CookieContainer();
+        protected static string SessonId;
         protected readonly HttpClient Client;
-        protected static readonly CookieContainer CookieContainer = new CookieContainer();
-        protected static Dictionary<string, string> CustomHeaders = new Dictionary<string, string>();
 
         public IJsonDeserializer JsonDeserializer
         {
@@ -20,11 +19,6 @@ namespace UltimateTeam.Toolkit.Request
 
         protected RequestBase()
         {
-            //var cookies = CookieContainer.GetCookies(new Uri("http://www.ea.com"));
-            //foreach (Cookie cookie in cookies)
-            //{
-            //    cookie.Domain = ".ea.com";
-            //}
             var handler = new HttpClientHandler { CookieContainer = CookieContainer };
             Client = new HttpClient(handler);
         }

@@ -22,12 +22,8 @@ namespace UltimateTeam.Toolkit.Request
                 Content = new StringContent(" ")
             };
 
-            CustomHeaders.Add("x-http-method-override", "GET");
-
-            foreach (var customHeader in CustomHeaders)
-            {
-                requestMessage.Headers.TryAddWithoutValidation(customHeader.Key, customHeader.Value);
-            }
+            requestMessage.Headers.TryAddWithoutValidation("X-Ut-Sid", SessonId);
+            requestMessage.Headers.TryAddWithoutValidation("x-http-method-override", "GET");
 
             var response = await Client.SendAsync(requestMessage);
             response.EnsureSuccessStatusCode();
