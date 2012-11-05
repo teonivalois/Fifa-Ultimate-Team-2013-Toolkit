@@ -50,6 +50,7 @@
     <Compile Include="Parameter\Nation.cs" />
     <Compile Include="Parameter\Position.cs" />
     <Compile Include="Parameter\Team.cs" />
+    <Compile Include="Request\PlayerImageRequest.cs" />
     <Compile Include="Service\IJsonDeserializer.cs" />
     <Compile Include="Extension\DateTimeExtensions.cs" />
     <Compile Include="Extension\LongExtensions.cs" />
