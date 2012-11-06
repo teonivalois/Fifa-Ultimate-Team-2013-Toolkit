@@ -39,7 +39,7 @@ var imageBytes = await playerImageRequest.GetImageAsync(auctionInfo.ItemData.Res
 
 ### Available parameter values
 
-Handt if you want to present all the options in the client application, for instance in a drop-down list.
+Handy if you want to present all the options in the client application, for instance in a drop-down list.
 
 Mapping all these values will be an ongoing process, wouldn't mind some pull requests as help.
 
