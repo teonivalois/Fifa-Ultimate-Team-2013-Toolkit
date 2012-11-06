@@ -32,9 +32,22 @@ foreach (var auctionInfo in searchResponse.AuctionInfo)
 ```
 
 ### Player image
+
+Format: PNG
+Dimensions: 100 x 100 pixels
+
 ```csharp
 var playerImageRequest = new PlayerImageRequest();
 var imageBytes = await playerImageRequest.GetImageAsync(auctionInfo.ItemData.ResourceId);
+```
+
+### Item data
+
+Contains data such as name, ratings etc.
+
+```csharp
+var itemRequest = new ItemRequest();
+var item = await itemRequest.GetItemAsync(auctionInfo.ItemData.ResourceId);
 ```
 
 ### Available parameter values
