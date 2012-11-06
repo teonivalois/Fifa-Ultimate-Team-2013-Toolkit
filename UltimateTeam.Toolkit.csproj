@@ -41,7 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Formation.cs" />
+    <Compile Include="Model\DateOfBirth.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\ItemWrapper.cs" />
+    <Compile Include="Model\RareType.cs" />
+    <Compile Include="Parameter\Formation.cs" />
     <Compile Include="Parameter\PlayerSearchParameters.cs" />
     <Compile Include="Model\ResourceType.cs" />
     <Compile Include="Parameter\SearchParameterBase.cs" />
@@ -50,6 +54,7 @@
     <Compile Include="Parameter\Nation.cs" />
     <Compile Include="Parameter\Position.cs" />
     <Compile Include="Parameter\Team.cs" />
+    <Compile Include="Request\ItemRequest.cs" />
     <Compile Include="Request\PlayerImageRequest.cs" />
     <Compile Include="Service\IJsonDeserializer.cs" />
     <Compile Include="Extension\DateTimeExtensions.cs" />

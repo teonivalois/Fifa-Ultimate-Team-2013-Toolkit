@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using UltimateTeam.Toolkit.Parameter;
 
-namespace UltimateTeam.Toolkit.Model
+namespace UltimateTeam.Toolkit.Parameter
 {
     public class Formation : SearchParameterBase<string>
     {
@@ -27,7 +26,7 @@ namespace UltimateTeam.Toolkit.Model
 
         public const string FourFourOneOne = "f4411";
 
-        public const string FourFourTwo = "f422";
+        public const string FourFourTwo = "f442";
 
         public const string FourFiveOne = "f451";
 
