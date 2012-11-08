@@ -5,6 +5,8 @@ namespace UltimateTeam.Toolkit.Model
     [DataContract]
     public class Item
     {
+        private byte _rating;
+
         /*
         * Players - Defender
         * ------------------
@@ -68,6 +70,25 @@ namespace UltimateTeam.Toolkit.Model
         public RareType Rare { get; set; }
 
         [DataMember]
-        public byte Rating { get; set; }
+        public byte Rating
+        {
+            get { return _rating; }
+            set
+            {
+                _rating = value;
+                SetCardType();
+            }
+        }
+
+        [DataMember]
+        public CardType CardType { get; set; }
+
+        private void SetCardType()
+        {
+            if (Rating < 65)
+                CardType = CardType.Bronze;
+            else if (Rating < 75)
+                CardType = CardType.Silver;
+        }
     }
 }
