@@ -55,8 +55,10 @@
     <Compile Include="Parameter\Nation.cs" />
     <Compile Include="Parameter\Position.cs" />
     <Compile Include="Parameter\Team.cs" />
+    <Compile Include="Request\BidRequest.cs" />
     <Compile Include="Request\ItemRequest.cs" />
     <Compile Include="Request\PlayerImageRequest.cs" />
+    <Compile Include="Request\TradeRequest.cs" />
     <Compile Include="Service\IJsonDeserializer.cs" />
     <Compile Include="Extension\DateTimeExtensions.cs" />
     <Compile Include="Extension\LongExtensions.cs" />
@@ -84,7 +86,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\RequestBase.cs" />
     <Compile Include="Request\SearchRequest.cs" />
-    <Compile Include="Model\SearchResponse.cs" />
+    <Compile Include="Model\AuctionResponse.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

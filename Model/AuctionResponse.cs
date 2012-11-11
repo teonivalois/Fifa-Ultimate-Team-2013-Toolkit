@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace UltimateTeam.Toolkit.Model
 {
     [DataContract]
-    public class SearchResponse
+    public class AuctionResponse
     {
         [DataMember(Name = "auctionInfo")]
         public List<AuctionInfo> AuctionInfo { get; set; }

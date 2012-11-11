@@ -10,7 +10,7 @@ namespace UltimateTeam.Toolkit.Request
     {
         private const uint PageSize = 12;
 
-        public async Task<SearchResponse> SearchAsync(SearchParameters parameters)
+        public async Task<AuctionResponse> SearchAsync(SearchParameters parameters)
         {
             if (parameters == null) throw new ArgumentNullException("parameters");
             if (parameters.Page < 1) throw new ArgumentException("Page must be > 0");
@@ -28,9 +28,9 @@ namespace UltimateTeam.Toolkit.Request
             var response = await Client.SendAsync(requestMessage);
             response.EnsureSuccessStatusCode();
 
-            var searchResponse = JsonDeserializer.Deserialize<SearchResponse>(await response.Content.ReadAsStreamAsync());
+            var auctionResponse = JsonDeserializer.Deserialize<AuctionResponse>(await response.Content.ReadAsStreamAsync());
 
-            return searchResponse;
+            return auctionResponse;
         }
 
         private static Uri BuildUri(SearchParameters parameters)
