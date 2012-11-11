@@ -16,7 +16,7 @@ namespace UltimateTeam.Toolkit.Model
         public uint Contract { get; set; }
 
         [DataMember(Name = "discardValue")]
-        public uint DiscardValue { get; set; }
+        public uint? DiscardValue { get; set; }
 
         [DataMember(Name = "fitness")]
         public uint Fitness { get; set; }
