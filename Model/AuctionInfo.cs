@@ -11,11 +11,11 @@ namespace UltimateTeam.Toolkit.Model
         [DataMember(Name = "buyNowPrice")]
         public uint BuyNowPrice { get; set; }
 
-        [DataMember(Name = "currentPrice")]
+        [DataMember(Name = "currentBid")]
         public uint CurrentPrice { get; set; }
 
         [DataMember(Name = "expires")]
-        public uint Expires { get; set; }
+        public int Expires { get; set; }
 
         [DataMember(Name = "itemData")]
         public ItemData ItemData { get; set; }
