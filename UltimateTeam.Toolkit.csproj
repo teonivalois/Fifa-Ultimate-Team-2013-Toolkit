@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extension\AuctionInfoExtensions.cs" />
     <Compile Include="Model\CardType.cs" />
     <Compile Include="Model\DateOfBirth.cs" />
     <Compile Include="Model\Item.cs" />
