@@ -26,5 +26,22 @@
 
             return baseId;
         }
+
+        public static uint CalculateBid(this uint currentPrice)
+        {
+            if (currentPrice < 1000)
+                return currentPrice + 50;
+
+            if (currentPrice < 10000)
+                return currentPrice + 100;
+
+            if (currentPrice < 50000)
+                return currentPrice + 250;
+
+            if (currentPrice < 100000)
+                return currentPrice + 500;
+
+            return currentPrice + 1000;
+        }
     }
 }
