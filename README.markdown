@@ -31,6 +31,39 @@ foreach (var auctionInfo in searchResponse.AuctionInfo)
 }
 ```
 
+### Trade status
+
+Retrieves the trade statuses of the auctions of interest.
+
+```csharp
+var tradeRequest = new TradeRequest();
+var auctionResponse = await tradeRequest.GetTradeStatuses(
+    Auctions // Contains the auctions we're currently watching
+    .Where(model => model.AuctionInfo.Expires != -1)
+    .Select(model => model.AuctionInfo.TradeId));
+
+foreach (var auctionInfo in auctionResponse.AuctionInfo)
+{
+	// Handle the update auction data
+}
+```
+
+### Place bids
+
+Passing the amount explicitly:
+
+```csharp
+var bidRequest = new BidRequest();
+var bidResponse = await bidRequest.PlaceBid(auctionInfo, 100);
+```
+
+Place the next valid bid amount:
+
+```csharp
+var bidRequest = new BidRequest();
+var bidResponse = await bidRequest.PlaceBid(auctionInfo, auctionInfo.CalculateBid());
+```
+
 ### Player image
 
 - Format: PNG
@@ -83,4 +116,18 @@ IEnumerable<Position> positions = Position.GetAll();
 **Teams**
 ```csharp
 IEnumerable<Team> teams = Team.GetAll();
+```
+
+### Extension methods
+
+Automatically calculates the next valid bid amount:
+
+```csharp
+auctionInfo.CalculateBid();
+```
+
+Handy if you want to download the player images, item data etc. from the EA servers. The ItemRequest class uses this method internally.
+
+```csharp
+auctionInfo.ItemData.ResourceId.CalculateBaseId();
 ```
